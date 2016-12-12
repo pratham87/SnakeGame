@@ -46,20 +46,20 @@ function Snake(){
 		this.tail[this.total - 1] = createVector(this.x, this.y);
 
 		//Move the Snake
-		this.x = this.x + this.xspeed * scl;
-		this.y = this.y + this.yspeed * scl;
+		this.x = this.x + this.xspeed * snake_size;
+		this.y = this.y + this.yspeed * snake_size;
 
 		//Constrain the grid
-		this.x = constrain(this.x, 0, width - scl);
-		this.y = constrain(this.y, 0, height - scl);
+		this.x = constrain(this.x, 0, width - snake_size);
+		this.y = constrain(this.y, 0, height - snake_size);
 	}
 
 	this.show = function(){
 		fill(255);
 		for (var i = 0; i < this.total; i++) {
-			rect(this.tail[i].x, this.tail[i].y, scl, scl);
+			rect(this.tail[i].x, this.tail[i].y, snake_size, snake_size);
 		}
 
-		rect(this.x, this.y, scl, scl);	
+		rect(this.x, this.y, snake_size, snake_size);	
 	}
 }

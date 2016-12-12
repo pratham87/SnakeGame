@@ -1,6 +1,6 @@
 var s;
 var food;
-var scl = 10;
+var snake_size = 10;
 
 function setup() {
 	createCanvas(600,600);
@@ -17,7 +17,7 @@ function draw() {
 	
 	//Filling food with a color
 	fill(204, 102, 0);
-	rect(food.x, food.y, scl, scl);
+	rect(food.x, food.y, snake_size, snake_size);
 
 	if(s.eat(food)){
 		picklocation();
@@ -26,10 +26,10 @@ function draw() {
 
 //Pick random location for food
 function picklocation() {
-	var cols =  floor(width/scl);
-	var rows =  floor(height/scl);
+	var cols =  floor(width/snake_size);
+	var rows =  floor(height/snake_size);
 	food = createVector(floor(random(cols)), floor(random(rows)));
-	food.mult(scl); //expand it out and size it with the snake 
+	food.mult(snake_size); //expand it out and size it with the snake 
 }
 
 //To change the direction
