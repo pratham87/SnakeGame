@@ -11,9 +11,10 @@ function setup() {
 
 function draw() {
 	background(51);
-	// s,terminate();
+	s.terminate();
 	s.update();
 	s.show();
+	
 	
 	//Filling food with a color
 	fill(204, 102, 0);
