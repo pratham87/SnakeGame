@@ -14,6 +14,7 @@ function draw() {
 	s.terminate();
 	s.update();
 	s.show();
+	s.score();
 	
 	
 	//Filling food with a color
@@ -35,13 +36,13 @@ function picklocation() {
 
 //To change the direction
 function keyPressed() {
-  if (keyCode === UP_ARROW) {
+  if (keyCode === UP_ARROW && keyCode !== DOWN_ARROW) {
     s.dir(0,-1);
-  } else if (keyCode === DOWN_ARROW) {
+  } else if (keyCode === DOWN_ARROW && keyCode !== UP_ARROW) {
     s.dir(0,1);
-  }else if (keyCode === LEFT_ARROW) {
+  }else if (keyCode === LEFT_ARROW && keyCode !== RIGHT_ARROW) {
     s.dir(-1,0);
-  }else if (keyCode === RIGHT_ARROW) {
+  }else if (keyCode === RIGHT_ARROW && keyCode !== LEFT_ARROW) {
     s.dir(1,0);
   }
 }

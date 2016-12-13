@@ -18,6 +18,7 @@ function Snake(){
 			var tail_position = this.tail[i];
 			var distance = p5.Vector.dist(head_position ,tail_position);
 			if(distance < 1){
+				this.x = 0;
 				this.total = 0;
 				this.tail = [];
 			}
@@ -54,11 +55,17 @@ function Snake(){
 	}
 
 	this.show = function(){
+		
 		fill(255);
 		for (var i = 0; i < this.total; i++) {
 			rect(this.tail[i].x, this.tail[i].y, snake_size, snake_size);
 		}
 
 		rect(this.x, this.y, snake_size, snake_size);	
+	}
+
+	this.score = function(){
+		var score_text = "Score: " + this.total;
+		text(score_text, width/snake_size - 50, height - 10);
 	}
 }
