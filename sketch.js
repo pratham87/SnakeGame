@@ -1,27 +1,27 @@
-var s;
+var snake;
 var food;
 var snake_size = 10;
 
 function setup() {
 	createCanvas(600,600);
-	s = new Snake();
+	snake = new Snake();
 	frameRate(10);
 	picklocation();
 }
 
 function draw() {
 	background(51);
-	s.terminate();
-	s.update();
-	s.show();
-	s.score();
+	snake.terminate();
+	snake.update();
+	snake.show();
+	snake.score();
 	
 	
 	//Filling food with a color
 	fill(204, 102, 0);
 	rect(food.x, food.y, snake_size, snake_size);
 
-	if(s.eat(food)){
+	if(snake.eat(food)){
 		picklocation();
 	}
 }
@@ -37,13 +37,13 @@ function picklocation() {
 //To change the direction
 function keyPressed() {
   if (keyCode === UP_ARROW && keyCode !== DOWN_ARROW) {
-    s.dir(0,-1);
+    snake.dir(0,-1);
   } else if (keyCode === DOWN_ARROW && keyCode !== UP_ARROW) {
-    s.dir(0,1);
+    snake.dir(0,1);
   }else if (keyCode === LEFT_ARROW && keyCode !== RIGHT_ARROW) {
-    s.dir(-1,0);
+    snake.dir(-1,0);
   }else if (keyCode === RIGHT_ARROW && keyCode !== LEFT_ARROW) {
-    s.dir(1,0);
+    snake.dir(1,0);
   }
 }
 
