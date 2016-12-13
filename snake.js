@@ -15,10 +15,13 @@ function Snake(){
 	this.terminate = function(){
 		for(var i = 0; i < this.tail.length; i++){
 			var head_position = createVector(this.x, this.y);
+			var box = createVector(width, height);
 			var tail_position = this.tail[i];
-			var distance = p5.Vector.dist(head_position ,tail_position);
-			if(distance < 1){
+			var tail_distance = p5.Vector.dist(head_position ,tail_position);
+			var wall_distance = p5.Vector.dist(head_position ,box);
+			if(tail_distance < 1 || wall_distance < 1){
 				this.x = 0;
+				this.y = 0;
 				this.total = 0;
 				this.tail = [];
 			}
