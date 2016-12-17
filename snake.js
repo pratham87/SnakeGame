@@ -7,9 +7,20 @@ function Snake(){
 	this.total = 0; //Counter to count food eaten
 	this.tail = [];
 
-	this.dir = function(x,y){
-		this.xspeed = x;
-		this.yspeed = y;
+	this.dir = function(direction){
+		if(direction === "UP" && this.yspeed !== 1){
+			this.xspeed = 0;
+			this.yspeed = -1;
+		}else if (direction === "DOWN" && this.yspeed !== -1) {
+			this.xspeed = 0;
+			this.yspeed = 1;
+		}else if (direction === "LEFT" && this.xspeed !== 1) {
+			this.xspeed = -1;
+			this.yspeed = 0;
+		}else if (direction === "RIGHT" && this.xspeed !== -1) {
+			this.xspeed = 1;
+			this.yspeed = 0;
+		}
 	}
 
 	this.terminate = function(){
@@ -58,13 +69,13 @@ function Snake(){
 	}
 
 	this.show = function(){
-		
+
 		fill(255);
 		for (var i = 0; i < this.total; i++) {
 			rect(this.tail[i].x, this.tail[i].y, snake_size, snake_size);
 		}
 
-		rect(this.x, this.y, snake_size, snake_size);	
+		rect(this.x, this.y, snake_size, snake_size);
 	}
 
 	this.score = function(){
